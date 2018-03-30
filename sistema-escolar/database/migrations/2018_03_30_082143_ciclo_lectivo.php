@@ -27,7 +27,6 @@ class CicloLectivo extends Migration
             $table->foreign('PeriodoId')->references('PeriodoId')->on('tbl_PeriodoAcademico');
             
             $table->timestamps();
-
         });
     }
 

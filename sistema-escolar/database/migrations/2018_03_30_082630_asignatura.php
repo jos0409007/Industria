@@ -24,7 +24,6 @@ class Asignatura extends Migration
             $table->foreign('EspecialidadId')
                 ->references('EspecialidadId')
                 ->on('tbl_Especialidad');
-
         });
     }
 

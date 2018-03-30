@@ -25,7 +25,6 @@ class Alumno extends Migration
             $table->foreign('AlumnoId')->references('PersonaId')->on('tbl_persona')->onDelete('cascade');
             $table->foreign('TutorId')->references('PersonaId')->on('tbl_persona')->onDelete('cascade');
             $table->foreign('CarreraId')->references('CarreraId')->on('tbl_Carrera')->onDelete('cascade');
-
         });
     }
 

@@ -21,7 +21,6 @@ class AsignaturaCarrera extends Migration
 
             $table->foreign('AsignaturaId')->references('AsignaturaId')->on('tbl_Asignatura')->onDelete('cascade');
             $table->foreign('CarreraId')->references('CarreraId')->on('tbl_Carrera')->onDelete('cascade');
-
         });
     }
 

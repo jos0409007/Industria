@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Aula extends Migration
+class PeriodoAcademico extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class Aula extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_Aula', function (Blueprint $table) {
-            $table->increments('AulaId');
-            $table->integer('EdificioId')->unsigned();
+        Schema::create('tbl_PeriodoAcademico', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
+            $table->increments('PeriodoId');
+            $table->string('Descripcion',100);
+            $table->string('Estatus',20);
             $table->timestamps();
 
-            $table->foreign('EdificioId')->references('EdificioId')->on('tbl_Edificio')->onDelete('cascade');
+            $table->unique('PeriodoId');
         });
     }
 
@@ -29,6 +31,6 @@ class Aula extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_Aula');
+        Schema::dropIfExists('tbl_PeriodoAcademico');
     }
 }

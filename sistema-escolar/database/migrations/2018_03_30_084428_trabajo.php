@@ -30,7 +30,6 @@ class Trabajo extends Migration
 
          //   $table->foreign('ParcialId')->references('ParcialId')->on('tbl_Parcial');
 
-
         });
     }
 
