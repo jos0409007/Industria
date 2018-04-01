@@ -14,18 +14,18 @@ class SeccionAlumParcial extends Migration
     public function up()
     {
         Schema::create('tbl_SeccionAlumParcial', function (Blueprint $table) {
-            $table->string('SeccionAlumParcialId',40);
+            $table->string('SeccionAlumParcialId',40)->primary();
             $table->string('SeccionAlumnoId',30);
             $table->integer('ParcialId')->unsigned();
             $table->integer('NotaTrabajo');
             $table->integer('NotaExamen');
             $table->integer('NotaTotal');
-            $table->string('Estatus',10);
+            $table->enum('Estatus',['Aprobado','Reprobado']);
             $table->timestamps();
 
-            //$table->foreign('ParcialId')->references('ParcialId')->on('tbl_Parcial')->onDelete('cascade');
-            //$table->foreign('SeccionAlumnoId')->references('SeccionAlumnoId')
-              //  ->on('tbl_SeccionAlumno')->onDelete('cascade');
+            $table->foreign('ParcialId')->references('ParcialId')->on('tbl_Parcial')->onDelete('cascade');
+            $table->foreign('SeccionAlumnoId')->references('SeccionAlumnoId')
+                ->on('tbl_SeccionAlumno')->onDelete('cascade');
 
         });
     }

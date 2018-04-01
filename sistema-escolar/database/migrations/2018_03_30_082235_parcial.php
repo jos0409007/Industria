@@ -15,12 +15,12 @@ class Parcial extends Migration
     {
         Schema::create('tbl_Parcial', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('PacialId');
+            $table->increments('ParcialId');
             $table->integer('CicloId')->unsigned();
             $table->string('Descripcion',100);
             $table->date('FechaInicio');
             $table->date('FechaFin');
-            $table->string('Estatus',40);
+            $table->enum('Estatus',['Activo','Inactivo']);
 
             $table->timestamps();
 

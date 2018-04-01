@@ -22,13 +22,13 @@ class Trabajo extends Migration
             $table->date('FechaInicio');
             $table->date('FechaFin');
             $table->integer('Valor');
-            $table->string('TipoTrabajo',40); //investigacion, proyecto, tarea... etc
+            $table->enum('TipoTrabajo',['Investigacion','Tarea','Proyecto','Otro']); //investigacion, proyecto, tarea... etc
             $table->timestamps();
 
             $table->foreign('DocenteId',20)->references('DocenteId')
                 ->on('tbl_Docente')->onDelete('cascade');
 
-         //   $table->foreign('ParcialId')->references('ParcialId')->on('tbl_Parcial');
+            $table->foreign('ParcialId')->references('ParcialId')->on('tbl_Parcial');
 
         });
     }

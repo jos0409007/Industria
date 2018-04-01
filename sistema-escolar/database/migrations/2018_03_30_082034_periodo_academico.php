@@ -17,7 +17,7 @@ class PeriodoAcademico extends Migration
             $table->engine = 'InnoDB';
             $table->increments('PeriodoId');
             $table->string('Descripcion',100);
-            $table->string('Estatus',20);
+            $table->enum('Estatus',['Activo','Inactivo']);
             $table->timestamps();
 
             $table->unique('PeriodoId');

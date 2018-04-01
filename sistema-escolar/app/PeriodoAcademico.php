@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class PeriodoAcademico extends Model
 {
-    protected $table = 'periodo_academico';
+    protected $table = 'tbl_periodoacademico';
+    protected $primaryKey = 'PeriodoId';
+
+    protected $fillable = ['Descripcion', 'Estatus'];
+
+    public function cicloLectivo(){
+
+        return $this->hasMany('App\CicloLectivo','fkPeriodoCiclo','PeriodoId');
+
+    }
+
 }

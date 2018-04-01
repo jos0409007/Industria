@@ -21,7 +21,7 @@ class CicloLectivo extends Migration
             $table->string('TipoPeriodo',40);
             $table->date('FechaInicio');
             $table->date('FechaFin');
-            $table->string('CicloEstatus',40);
+            $table->enum('Estatus',['Activo','Inactivo']);
 
 
             $table->foreign('PeriodoId')->references('PeriodoId')->on('tbl_PeriodoAcademico');

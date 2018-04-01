@@ -36,6 +36,14 @@ class PeriodoAcademicoController extends Controller
     public function store(Request $request)
     {
         //
+        $periodoAcademico = new PeriodoAcademico;
+        $periodoAcademico->Descripcion = $request->input('Descripcion');
+        $periodoAcademico->Estatus = $request->input('Estatus');
+
+        $periodoAcademico->save();
+
+        return redirect()->route('periodoAcademico.index');
+
     }
 
     /**

@@ -16,10 +16,10 @@ class Alumno extends Migration
         Schema::create('tbl_Alumno', function (Blueprint $table) {
             $table->string('AlumnoId',20)->primary();
             $table->char('Beca',2);
-            $table->decimal('ProcentajeBeca',8,2)->nullable();
+            $table->decimal('PorcentajeBeca',8,2)->nullable();
             $table->string('TutorId',20)->nullable(); //si un alumno tiene un tutor dentro de la institucion, ambas hacen referencia a la tabla persona
             $table->integer('CarreraId')->unsigned();
-            $table->string('Estatus',20);
+            $table->enum('Estatus',['Activo','Inactivo']);
             $table->timestamps();
 
             $table->foreign('AlumnoId')->references('PersonaId')->on('tbl_persona')->onDelete('cascade');

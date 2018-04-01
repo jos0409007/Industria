@@ -15,7 +15,7 @@ class Seccion extends Migration
     {
         Schema::create('tbl_Seccion', function (Blueprint $table) {
             $table->increments('SeccionId');
-            $table->string('nombre',5);
+            $table->string('Nombre',5);
             $table->timestamps();
         });
     }

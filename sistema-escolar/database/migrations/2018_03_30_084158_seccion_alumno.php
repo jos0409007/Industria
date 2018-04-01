@@ -18,7 +18,7 @@ class SeccionAlumno extends Migration
             $table->string('AlumnoId',20);
             $table->string('AsignaturaSeccionId',10);
             $table->integer('Promedio');
-            $table->string('Estatus',10);
+            $table->enum('Estatus',['Aprobado','Reprobado','Abandono']);
 
             $table->timestamps();
             $table->foreign('AlumnoId')->references('AlumnoId')

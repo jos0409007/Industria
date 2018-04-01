@@ -16,9 +16,9 @@ class Docente extends Migration
         Schema::create('tbl_docente', function (Blueprint $table) {
             $table->string('DocenteId',20)->primary();
             $table->string('Titulo',50);
-            $table->string('TipoDocente',20); //recordar que es para definir si es de piso o es por hora
-            $table->date('FechaIngreso');
-            $table->string('Estatus');
+            $table->enum('TipoDocente',['Piso','Hora']); //recordar que es para definir si es de piso o es por hora
+            $table->date('FechaIngreso')->nullable();
+            $table->enum('Estatus','Activo','Inactivo');
             $table->timestamps();
 
             $table->foreign('DocenteId')->references('PersonaId')->on('tbl_persona')->onDelete('cascade');

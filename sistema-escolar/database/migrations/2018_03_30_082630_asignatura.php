@@ -23,7 +23,7 @@ class Asignatura extends Migration
 
             $table->foreign('EspecialidadId')
                 ->references('EspecialidadId')
-                ->on('tbl_Especialidad');
+                ->on('tbl_Especialidad')->onDelete('cascade');
         });
     }
 
