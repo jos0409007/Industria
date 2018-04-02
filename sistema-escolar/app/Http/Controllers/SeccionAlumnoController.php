@@ -15,6 +15,8 @@ class SeccionAlumnoController extends Controller
     public function index()
     {
         //
+        $seccionalumno = SeccionAlumno::get();
+        return view('seccionAlumno.index')->with('seccionAlumno',$seccionalumno);
     }
 
     /**
@@ -25,6 +27,7 @@ class SeccionAlumnoController extends Controller
     public function create()
     {
         //
+        return view('seccionAlumno.create');
     }
 
     /**
@@ -36,12 +39,21 @@ class SeccionAlumnoController extends Controller
     public function store(Request $request)
     {
         //
+        $seccionalumno = new Seccionalumno;
+        $seccionalumno->SeccionAlumnoId = $request->input('SeccionAlumnoId');
+        $seccionalumno->AlumnoId = $request->input('AlumnoId');
+        $seccionalumno->AsignaturaSeccionId = $request->input('AsignaturaSeccionId');
+        $seccionalumno->Promedio = $request->input('Promedio');
+        $seccionalumno->Estatus = $request->input('Estatus');
+
+        $seccionalumno->save();
+        return redirect()->route('seccionAlumno.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,34 +64,49 @@ class SeccionAlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
+        $seccionalumno = Seccionalumno::find($id);
+        return view('seccionAlumno.edit')->with('seccionAlumno',$seccionalumno);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         //
+        $seccionalumno = Seccionalumno::find($id);
+        $seccionalumno->SeccionAlumnoId = $request->input('SeccionAlumnoId');
+        $seccionalumno->AlumnoId = $request->input('AlumnoId');
+        $seccionalumno->AsignaturaSeccionId = $request->input('AsignaturaSeccionId');
+        $seccionalumno->Promedio = $request->input('Promedio');
+        $seccionalumno->Estatus = $request->input('Estatus');
+
+        $seccionalumno->save();
+        return redirect()->route('seccionAlumno.index');
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+        SeccionAlumno::destroy($id);
+        return redirect()->route('seccionAlumno.index');
+
     }
 }

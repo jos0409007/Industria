@@ -15,6 +15,8 @@ class EdificioController extends Controller
     public function index()
     {
         //
+        $edificio = Edificio::get();
+        return view('edificio.index')->with('edificio',$edificio);
     }
 
     /**
@@ -25,6 +27,7 @@ class EdificioController extends Controller
     public function create()
     {
         //
+        return view('edificio.create');
     }
 
     /**
@@ -36,6 +39,12 @@ class EdificioController extends Controller
     public function store(Request $request)
     {
         //
+        $edificio = new Edificio;
+        $edificio->Nombre = $request->input('Nombre');
+        $edificio->Descripcion = $request->input('Descripcion');
+        $edificio->save();
+
+        return redirect()->route('edificio.index');
     }
 
     /**
@@ -58,6 +67,10 @@ class EdificioController extends Controller
     public function edit($id)
     {
         //
+
+        $edificio = Edificio::find($id);
+        return view('edificio.edit')->with('edificio',$edificio);
+
     }
 
     /**
@@ -70,6 +83,13 @@ class EdificioController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $edificio = Edificio::find($id);
+        $edificio->Nombre = $request->input('Nombre');
+        $edificio->Descripcion = $request->input('Descripcion');
+        $edificio->save();
+
+        return redirect()->route('edificio.index');
+
     }
 
     /**
@@ -81,5 +101,9 @@ class EdificioController extends Controller
     public function destroy($id)
     {
         //
+
+        Edificio::destroy($id);
+        return redirect()->route('edificio.index');
+
     }
 }

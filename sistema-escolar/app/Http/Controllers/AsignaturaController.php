@@ -15,6 +15,8 @@ class AsignaturaController extends Controller
     public function index()
     {
         //
+        $asignatura = Asignatura::get();
+        return view('asignatura.index')->with('asignatura',$asignatura);
     }
 
     /**
@@ -25,6 +27,7 @@ class AsignaturaController extends Controller
     public function create()
     {
         //
+        return view('asignatura.create');
     }
 
     /**
@@ -36,6 +39,13 @@ class AsignaturaController extends Controller
     public function store(Request $request)
     {
         //
+        $asignatura = new Asignatura;
+        $asignatura->Nombre = $request->input('Nombre');
+        $asignatura->Especialidad = $request->input('Especialidad');
+        $asignatura->Unidadvalorativa = $request->input('UnidadValorativa');
+
+        $asignatura->save();
+        return redirect()->route('asignatura.index');
     }
 
     /**
@@ -58,6 +68,8 @@ class AsignaturaController extends Controller
     public function edit($id)
     {
         //
+        $asignatura = Asignatura::find($id);
+        return view('asignatura.edit')->with('asignatura',$asignatura);
     }
 
     /**
@@ -70,6 +82,15 @@ class AsignaturaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $asignatura = Asignatura::find($id);
+
+        $asignatura->Nombre = $request->input('Nombre');
+        $asignatura->Especialidad = $request->input('Especialidad');
+        $asignatura->Unidadvalorativa = $request->input('UnidadValorativa');
+
+        $asignatura->save();
+        return redirect()->route('asignatura.index');
+
     }
 
     /**
@@ -81,5 +102,7 @@ class AsignaturaController extends Controller
     public function destroy($id)
     {
         //
+        Asignatura::destroy($id);
+        return redirect()->route('asignatura.index');
     }
 }

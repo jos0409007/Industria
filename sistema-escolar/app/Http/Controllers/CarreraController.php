@@ -15,6 +15,8 @@ class CarreraController extends Controller
     public function index()
     {
         //
+        $carrera = Carrera::get();
+        return view('carrera.index')->with('carrera',$carrera);
     }
 
     /**
@@ -25,6 +27,7 @@ class CarreraController extends Controller
     public function create()
     {
         //
+        return view('carrera.create');
     }
 
     /**
@@ -36,6 +39,12 @@ class CarreraController extends Controller
     public function store(Request $request)
     {
         //
+        $carrera = new Carrera;
+        $carrera->Nombre =  $request->input('Nombre');
+        $carrera->Descricpion = $request->input('Descripcion');
+        $carrera->save();
+
+        return redirect()->route('carrera.index');
     }
 
     /**
@@ -47,6 +56,7 @@ class CarreraController extends Controller
     public function show($id)
     {
         //
+
     }
 
     /**
@@ -58,6 +68,8 @@ class CarreraController extends Controller
     public function edit($id)
     {
         //
+        $carrera = Carrera::find($id);
+        return view('carrera.edit')->with('carrera',$carrera);
     }
 
     /**
@@ -70,6 +82,13 @@ class CarreraController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $carrera = Carrera::find($id);
+        $carrera->Nombre =  $request->input('Nombre');
+        $carrera->Descricpion = $request->input('Descripcion');
+        $carrera->save();
+
+        return redirect()->route('carrera.index');
+
     }
 
     /**
@@ -81,5 +100,9 @@ class CarreraController extends Controller
     public function destroy($id)
     {
         //
+        Carrera::destroy($id);
+        return redirect()->route('carrera.index');
+
+
     }
 }

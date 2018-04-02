@@ -15,6 +15,8 @@ class SeccionController extends Controller
     public function index()
     {
         //
+        $seccion = Seccion::get();
+        return view('seccion.index')->with('seccion',$seccion);
     }
 
     /**
@@ -25,6 +27,9 @@ class SeccionController extends Controller
     public function create()
     {
         //
+
+        return view('seccion.create');
+
     }
 
     /**
@@ -36,6 +41,11 @@ class SeccionController extends Controller
     public function store(Request $request)
     {
         //
+        $seccion =  new Seccion;
+        $seccion->Nombre = $request->input('Nombre');
+
+        $seccion->save();
+        return redirect()->route('seccion.index');
     }
 
     /**
@@ -47,6 +57,9 @@ class SeccionController extends Controller
     public function show($id)
     {
         //
+
+
+
     }
 
     /**
@@ -58,6 +71,8 @@ class SeccionController extends Controller
     public function edit($id)
     {
         //
+        $seccion = Seccion::fin($id);
+        return view('seccion.edit')->with('seccion',$seccion);
     }
 
     /**
@@ -70,6 +85,12 @@ class SeccionController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $seccion = Seccion::fin($id);
+        $seccion->Nombre = $request->input('Nombre');
+
+        $seccion->save();
+        return redirect()->route('seccion.index');
+
     }
 
     /**
@@ -81,5 +102,8 @@ class SeccionController extends Controller
     public function destroy($id)
     {
         //
+        Seccion::destroy($id);
+        return redirect()->route('seccion.index');
+
     }
 }

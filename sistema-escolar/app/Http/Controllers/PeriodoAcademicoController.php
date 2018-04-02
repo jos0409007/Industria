@@ -15,6 +15,8 @@ class PeriodoAcademicoController extends Controller
     public function index()
     {
         //
+        $periodoAcademico = PeriodoAcademico::get();
+        return view('periodoAcademico.index')->with('periodoAcademico',$periodoAcademico);
     }
 
     /**
@@ -25,6 +27,7 @@ class PeriodoAcademicoController extends Controller
     public function create()
     {
         //
+        return view('periodoAcademico.create');
     }
 
     /**
@@ -42,7 +45,7 @@ class PeriodoAcademicoController extends Controller
 
         $periodoAcademico->save();
 
-        return redirect()->route('periodoAcademico.index');
+        return redirect()->route('periodoacademico.index');
 
     }
 
@@ -66,6 +69,9 @@ class PeriodoAcademicoController extends Controller
     public function edit($id)
     {
         //
+        $periodoAcademico = PeriodoAcadmico::find($id);
+        return view('periodoAcademico.edit')->with('periodoAcademico',$periodoAcademico);
+
     }
 
     /**
@@ -78,6 +84,15 @@ class PeriodoAcademicoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $periodoAcademico = PeriodoAcademico::find($id);
+        $periodoAcademico->Descripcion = $request->input('Descripcion');
+        $periodoAcademico->Estatus = $request->input('Estatus');
+
+        $periodoAcademico->save();
+
+        return redirect()->route('periodoacademico.index');
+
+
     }
 
     /**
@@ -89,5 +104,9 @@ class PeriodoAcademicoController extends Controller
     public function destroy($id)
     {
         //
+        PeriodoAcademico::destroy($id);
+        
+        return redirect()->route('periodoacademico.index');
+
     }
 }

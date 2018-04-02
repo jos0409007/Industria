@@ -15,6 +15,8 @@ class ParcialController extends Controller
     public function index()
     {
         //
+        $parcial = Parcial::get();
+        return view('parcial.index')->with('parcial',$parcial);
     }
 
     /**
@@ -25,6 +27,7 @@ class ParcialController extends Controller
     public function create()
     {
         //
+        return view('parcial.create');
     }
 
     /**
@@ -36,6 +39,18 @@ class ParcialController extends Controller
     public function store(Request $request)
     {
         //
+
+        $parcial = new Parcial;
+        $parcial->CicloId = $request->input('CicloId');
+        $parcial->Descripcion = $request->input('Descripcion');
+        $parcial->FechaInicio = $request->input('FechaInicio');
+        $parcial->FechaFin = $request->input('FechaFin');
+        $parcial->Estatus = $request->input('Estatus');
+
+        $parcial->save();
+        
+        return redirect()->route('parcial.index');
+
     }
 
     /**
@@ -58,6 +73,10 @@ class ParcialController extends Controller
     public function edit($id)
     {
         //
+        $parcial = Parcial::find($id);
+        return view('parcial.edit')->with('parcia',$parcial);
+        
+
     }
 
     /**
@@ -70,6 +89,19 @@ class ParcialController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+        $parcial = Parcial::find($id);
+        $parcial->CicloId = $request->input('CicloId');
+        $parcial->Descripcion = $request->input('Descripcion');
+        $parcial->FechaInicio = $request->input('FechaInicio');
+        $parcial->FechaFin = $request->input('FechaFin');
+        $parcial->Estatus = $request->input('Estatus');
+
+        $parcial->save();
+        
+        return redirect()->route('parcial.index');
+
+
     }
 
     /**
@@ -81,5 +113,9 @@ class ParcialController extends Controller
     public function destroy($id)
     {
         //
+        Parcial::destroy($id);
+        return redirect()->route('parcial.index');
+
+
     }
 }

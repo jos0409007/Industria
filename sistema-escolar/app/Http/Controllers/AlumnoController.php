@@ -15,6 +15,8 @@ class AlumnoController extends Controller
     public function index()
     {
         //
+        $alumno = Alumno::get();
+        return view('alumno.index')->with('alumno',$alumno);
     }
 
     /**
@@ -25,6 +27,7 @@ class AlumnoController extends Controller
     public function create()
     {
         //
+        return view('alumno.create');
     }
 
     /**
@@ -36,6 +39,17 @@ class AlumnoController extends Controller
     public function store(Request $request)
     {
         //
+        $alumno = new Alumno;
+        $alumno->AlumnoId = $request->input('AlumnoId');
+        $alumno->Beca = $request->input('Beca');
+        $alumno->PorcentajeBeca = $request->input('PorcentajeBeca');
+        $alumno->TutorId = $request->inpunt('TutorId');
+        $alumno->CarreraId = $request->input('CarreraId');
+        $alumno->Estatus = $request->input('Estatus');
+
+        $alumno->save();
+        return redirect()->route('alumno.index');
+
     }
 
     /**
@@ -58,6 +72,8 @@ class AlumnoController extends Controller
     public function edit($id)
     {
         //
+        $alumno = Alumno::find($id);
+        return view('alumno.edit')->with('alumno',$alumno);
     }
 
     /**
@@ -70,6 +86,17 @@ class AlumnoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $alumno = Alumno::find($id);
+        $alumno->AlumnoId = $request->input('AlumnoId');
+        $alumno->Beca = $request->input('Beca');
+        $alumno->PorcentajeBeca = $request->input('PorcentajeBeca');
+        $alumno->TutorId = $request->inpunt('TutorId');
+        $alumno->CarreraId = $request->input('CarreraId');
+        $alumno->Estatus = $request->input('Estatus');
+
+        $alumno->save();
+        return redirect()->route('alumno.index');
+
     }
 
     /**
@@ -81,5 +108,8 @@ class AlumnoController extends Controller
     public function destroy($id)
     {
         //
+        Alumno::destroy($id);
+        return redirect()->route('alumno.index');
+
     }
 }

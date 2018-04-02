@@ -15,6 +15,8 @@ class EspecialidadController extends Controller
     public function index()
     {
         //
+        $especialidad = Especialidad::get();
+        return view('especialidad.index')->with('especialidad',$especialidad);
     }
 
     /**
@@ -25,6 +27,7 @@ class EspecialidadController extends Controller
     public function create()
     {
         //
+        return view('especialidad.create');
     }
 
     /**
@@ -36,6 +39,12 @@ class EspecialidadController extends Controller
     public function store(Request $request)
     {
         //
+        $especialidad = new Especialidad;
+        $especialidad->Nombre = $request->input('Nombre');
+
+        $especialidad->save();
+
+        return redirect()->route('especialidad.index');
     }
 
     /**
@@ -58,6 +67,9 @@ class EspecialidadController extends Controller
     public function edit($id)
     {
         //
+        $especialidad =  Especialidad::find($id);
+        return view('especialidad.edit')->with('especialidad',$especialidad);
+
     }
 
     /**
@@ -70,6 +82,15 @@ class EspecialidadController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $especialidad =  Especialidad::find($id);
+        $especialidad->Nombre = $request->input('Nombre');
+
+        $especialidad->save();
+
+        return redirect()->route('especialidad.index');
+
+
     }
 
     /**
@@ -81,5 +102,9 @@ class EspecialidadController extends Controller
     public function destroy($id)
     {
         //
+        Especialidad::destroy($id);
+        return redirect()->route('especialidad.index');
+
+
     }
 }

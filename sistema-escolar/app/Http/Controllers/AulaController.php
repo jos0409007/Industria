@@ -15,6 +15,8 @@ class AulaController extends Controller
     public function index()
     {
         //
+        $aula = Aula::get();
+        return view('aula.index')->with('aula',$aula);
     }
 
     /**
@@ -25,6 +27,7 @@ class AulaController extends Controller
     public function create()
     {
         //
+        return view('aula.create');
     }
 
     /**
@@ -36,6 +39,11 @@ class AulaController extends Controller
     public function store(Request $request)
     {
         //
+        
+        $aula = new Aula;
+        $aula->EdificioId = $request->input('EdificioId');
+        $aula->save();
+        return redirect()->route('aula.index');
     }
 
     /**
@@ -58,6 +66,8 @@ class AulaController extends Controller
     public function edit($id)
     {
         //
+        $aula = Aula::find($id);
+        return view('aula.edit')->width('aula',$aula);
     }
 
     /**
@@ -70,6 +80,11 @@ class AulaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $aula = Aula::find($id);
+        
+        $aula->EdificioId = $request->input('EdificioId');
+        $aula->save();
+        return redirect()->route('aula.index');
     }
 
     /**
@@ -81,5 +96,8 @@ class AulaController extends Controller
     public function destroy($id)
     {
         //
+        Aula::destroy($id);
+        return redirect()->route('aula.index');
+
     }
 }

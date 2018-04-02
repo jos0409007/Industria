@@ -15,6 +15,8 @@ class CicloAsignaturaController extends Controller
     public function index()
     {
         //
+        $cicloAsignatura = CicloAsignatura::get();
+        return view('cicloasignatura.index')->with('cicloAsignatura',$cicloAsignatura);
     }
 
     /**
@@ -25,6 +27,7 @@ class CicloAsignaturaController extends Controller
     public function create()
     {
         //
+        return view('cicloAsignatura.create');
     }
 
     /**
@@ -36,6 +39,12 @@ class CicloAsignaturaController extends Controller
     public function store(Request $request)
     {
         //
+        $cicloAsignatura = new CicloAsignatura;
+        $cicloAsignatura->AsignaturaCarreraId = $request->input('AsignaturaCarreraId');
+        $cicloAsignatura->CicloId = $request->input('CicloId');
+        $cicloAsignatura->save();
+
+        return redirect()->route('cicloasignatura.index');
     }
 
     /**
@@ -58,6 +67,8 @@ class CicloAsignaturaController extends Controller
     public function edit($id)
     {
         //
+        $cicloAsignatura = CicloAsignatura::find($id);
+        return view('cicloAsignatura.edit')->width('cicloAsignatura',$cicloAsignatura);
     }
 
     /**
@@ -70,6 +81,14 @@ class CicloAsignaturaController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $cicloAsignatura = CicloAsignatura::find($id);
+        
+        $cicloAsignatura->AsignaturaCarreraId = $request->input('AsignaturaCarreraId');
+        $cicloAsignatura->CicloId = $request->input('CicloId');
+        $cicloAsignatura->save();
+
+        return redirect()->route('cicloasignatura.index');
+
     }
 
     /**
@@ -81,5 +100,10 @@ class CicloAsignaturaController extends Controller
     public function destroy($id)
     {
         //
+
+        CicloAsignatura::destroy($id);
+        
+        return redirect()->route('cicloasignatura.index');
+
     }
 }

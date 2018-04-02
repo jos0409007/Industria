@@ -10,7 +10,7 @@ class CicloLectivo extends Model
 
     protected $primaryKey = 'CicloId';
 
-    protected $fillable = ['PeriodoId','Descripcion','TipoPeriodo','FechaInicio', 'FechaFin', 'CicloEstatus'];
+    protected $fillable = ['PeriodoId','Descripcion','TipoPeriodo','FechaInicio', 'FechaFin', 'Estatus'];
 
     public function periodoAcademico(){
 

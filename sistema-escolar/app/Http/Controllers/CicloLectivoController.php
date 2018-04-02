@@ -15,6 +15,8 @@ class CicloLectivoController extends Controller
     public function index()
     {
         //
+        $ciclo = CicloLectivo::get();
+        return view('cicloLectivo.index')->with('ciclo',$ciclo);
     }
 
     /**
@@ -25,6 +27,7 @@ class CicloLectivoController extends Controller
     public function create()
     {
         //
+        return view('cicloLectivo.create');
     }
 
     /**
@@ -36,6 +39,18 @@ class CicloLectivoController extends Controller
     public function store(Request $request)
     {
         //
+        $ciclo = new CicloLectivo;
+        $ciclo->PeriodoId = $request->input('PeriodoId');
+        $ciclo->Descripcion = $request->input('Descripcion');
+        $ciclo->TipoPeriodo = $request->input('TipoPeriodo');
+        $ciclo->FechaInicio = $request->input('FechaInicio');
+        $ciclo->FechaFin = $request->input('FechaFin');
+        $ciclo->Estatus = $request->input('Estatus');
+
+        $ciclo->save();
+
+        return redirect()->route('ciclolectivo.index');
+
     }
 
     /**
@@ -58,6 +73,11 @@ class CicloLectivoController extends Controller
     public function edit($id)
     {
         //
+
+        $ciclo = CiloLectivo::find($id);
+        
+        return view('cicloLectivo.edit')->with('ciclo', $ciclo);
+
     }
 
     /**
@@ -70,6 +90,20 @@ class CicloLectivoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        
+        $ciclo = CiloLectivo::find($id);
+        $ciclo->PeriodoId = $request->input('PeriodoId');
+        $ciclo->Descripcion = $request->input('Descripcion');
+        $ciclo->TipoPeriodo = $request->input('TipoPeriodo');
+        $ciclo->FechaInicio = $request->input('FechaInicio');
+        $ciclo->FechaFin = $request->input('FechaFin');
+        $ciclo->Estatus = $request->input('Estatus');
+
+        $ciclo->save();
+
+        return redirect()->route('ciclolectivo.index');
+
+
     }
 
     /**
@@ -81,5 +115,9 @@ class CicloLectivoController extends Controller
     public function destroy($id)
     {
         //
+
+        CicloLectivo::destroy($id);
+        return redirect()->route('ciclolectivo.index');
+
     }
 }
