@@ -15,6 +15,8 @@ class SeccionAlumnoParcialController extends Controller
     public function index()
     {
         //
+        $seccionAlumnoParcialParcial = SeccionAlumnoParcial::get();
+        return view('seccionAlumnoParcial.index')->with('seccionAlumno', $seccionAlumnoParcialParcial);
     }
 
     /**
@@ -25,6 +27,7 @@ class SeccionAlumnoParcialController extends Controller
     public function create()
     {
         //
+        return view('seccionAlumnoParcial.create');
     }
 
     /**
@@ -36,12 +39,24 @@ class SeccionAlumnoParcialController extends Controller
     public function store(Request $request)
     {
         //
+        $seccionAlumnoParcialParcial = new SeccionAlumnoParcial;
+        $seccionAlumnoParcialParcial->SeccionAlumParcialId = $request->input('SeccionAlumParcialId');
+        $seccionAlumnoParcialParcial->SeccionAlumnoId = $request->input('SeccionAlumnoId');
+        $seccionAlumnoParcialParcial->ParcialId = $request->input('ParcialId');
+        $seccionAlumnoParcialParcial->NotaTrabajo = $request->input('NotaTrabajo');
+        $seccionAlumnoParcial->NotaExamen = $request->input('NotaExamen');
+        $seccionAlumnoParcial->NotaTotal = $request->input('NotaTotal');
+        $seccionAlumnoParcial->Estatus = $request->input('Estatus');
+
+        $seccionAlumnoParcial->save();
+        return redirect()->route('seccionalumnoparcial.index');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,12 +67,14 @@ class SeccionAlumnoParcialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
+        $seccionAlumnoParcial = SeccionAlumnoParcial::find($id);
+        return view('seccionAlumnoParcial.edit')->with('seccionAlumno',$seccionAlumnoParcial);
     }
 
     /**
@@ -70,16 +87,34 @@ class SeccionAlumnoParcialController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $seccionAlumnoParcial = SeccionAlumnoParcial::find($id);
+
+        $seccionAlumnoParcial->SeccionAlumParcialId = $request->input('SeccionAlumParcialId');
+        $seccionAlumnoParcial->SeccionAlumnoId = $request->input('SeccionAlumnoId');
+        $seccionAlumnoParcial->ParcialId = $request->input('ParcialId');
+        $seccionAlumnoParcial->NotaTrabajo = $request->input('NotaTrabajo');
+        $seccionAlumnoParcial->NotaExamen = $request->input('NotaExamen');
+        $seccionAlumnoParcial->NotaTotal = $request->input('NotaTotal');
+        $seccionAlumnoParcial->Estatus = $request->input('Estatus');
+
+        $seccionAlumnoParcial->save();
+        return redirect()->route('seccionalumnoparcial.index');
+
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+
+        SeccionAlumnoParcial::destroy($id);
+        return redirect()->route('seccionalumnoparcial.index');
+
     }
 }

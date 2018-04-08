@@ -15,6 +15,8 @@ class TrabajoAsignaturaSeccionController extends Controller
     public function index()
     {
         //
+        $trabajoAsignaturaSeccion = TrabajoAsignaturaSeccion::get();
+        return view('trabajoAsignaturaSeccion.index')->with('trabajoAsignaturaSeccion', $trabajoAsignaturaSeccion);
     }
 
     /**
@@ -25,6 +27,7 @@ class TrabajoAsignaturaSeccionController extends Controller
     public function create()
     {
         //
+        return view('trbajoAsignaturaSeccion.index');
     }
 
     /**
@@ -36,12 +39,19 @@ class TrabajoAsignaturaSeccionController extends Controller
     public function store(Request $request)
     {
         //
+        $trabajoAsignaturaSeccion =  new TrabajoAsignaturaSeccion;
+        $trabajoAsignaturaSeccion->TrabajoAsigId =  $request->input('TrabajoAsignId');
+        $trabajoAsignaturaSeccion->TrabajoId = $request->input('TrabajoId');
+        $trabajoAsignaturaSeccion->AsignaturaSeccionId = $request->input('AsignaturaSeccionId');
+        $trabajoAsignaturaSeccion->save();
+
+        return redirect()->route('trabajoasignaturaseccion.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,12 +62,15 @@ class TrabajoAsignaturaSeccionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
+        $trabajoAsignaturaSeccion = TrabajoAsignaturaSeccion::find($id);
+        return view('trabajoAsignaturaSeccion.edit')->with('trabajoAsignaturaSeccion', $trabajoAsignaturaSeccion);
+
     }
 
     /**
@@ -70,16 +83,26 @@ class TrabajoAsignaturaSeccionController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $trabajoAsignaturaSeccion = TrabajoAsignaturaSeccion::find($id);
+        $trabajoAsignaturaSeccion->TrabajoAsigId =  $request->input('TrabajoAsignId');
+        $trabajoAsignaturaSeccion->TrabajoId = $request->input('TrabajoId');
+        $trabajoAsignaturaSeccion->AsignaturaSeccionId = $request->input('AsignaturaSeccionId');
+        $trabajoAsignaturaSeccion->save();
+
+        return redirect()->route('trabajoasignaturaseccion.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  string  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+        TrabajoAsignaturaSeccion::destroy($id);
+        return redirect()->route('trabajoasignaturaseccion.index');
+
     }
 }
