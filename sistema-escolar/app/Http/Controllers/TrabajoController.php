@@ -15,6 +15,8 @@ class TrabajoController extends Controller
     public function index()
     {
         //
+        $trabajo = Trabajo::get();
+        return view('trabajo.index')->with('trabajo',$trabajo);
     }
 
     /**
@@ -25,6 +27,9 @@ class TrabajoController extends Controller
     public function create()
     {
         //
+
+        return view('trabajo.create');
+
     }
 
     /**
@@ -36,6 +41,20 @@ class TrabajoController extends Controller
     public function store(Request $request)
     {
         //
+        $trabajo = new Trabajo;
+
+        $trabajo->DocenteId = $request->input('DocenteId');
+        $trabajo->Nombre = $request->input('Nombre');
+        $trabajo->Descripcion = $request->input('Descripcion');
+        $trabajo->ParcialId = $request->input('ParcialId');
+        $trabajo->FechaInicio = $request->input('FechaInicio');
+        $trabajo->FechaFin = $request->input('FechaFin');
+        $trabajo->Valor = $request->input('Valor');
+        $trabajo->TipoTrabajo = $request->input('TipoTrabajo');
+
+        $trabajo->save();
+        return redirect()->route('trabajo.index');
+
     }
 
     /**
@@ -58,6 +77,9 @@ class TrabajoController extends Controller
     public function edit($id)
     {
         //
+        $trabajo = Trabajo::find($id);
+        return view('trabajo.edit')->with('trabajo', $trabajo);
+
     }
 
     /**
@@ -70,6 +92,19 @@ class TrabajoController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $trabajo = Trabajo::find($id);
+        $trabajo->DocenteId = $request->input('DocenteId');
+        $trabajo->Nombre = $request->input('Nombre');
+        $trabajo->Descripcion = $request->input('Descripcion');
+        $trabajo->ParcialId = $request->input('ParcialId');
+        $trabajo->FechaInicio = $request->input('FechaInicio');
+        $trabajo->FechaFin = $request->input('FechaFin');
+        $trabajo->Valor = $request->input('Valor');
+        $trabajo->TipoTrabajo = $request->input('TipoTrabajo');
+
+        $trabajo->save();
+        return redirect()->route('trabajo.index');
+
     }
 
     /**
@@ -81,5 +116,8 @@ class TrabajoController extends Controller
     public function destroy($id)
     {
         //
+
+        Trabajo::destroy($id);
+        return redirect()->route('trabajo.index');
     }
 }
