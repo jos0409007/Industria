@@ -18,7 +18,7 @@ class PeriodoAcademicoSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++){
            
-            \DB::table('tbl_Periodoacademico')->insert(array(
+            \DB::table('tbl_PeriodoAcademico')->insert(array(
                 'Descripcion' => str_random(70),
                 'Estatus' => $faker->randomElement(['Activo','Inactivo']),
                 'created_at' => date('Y-m-d H:m:s'),
