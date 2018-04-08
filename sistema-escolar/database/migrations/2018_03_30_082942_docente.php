@@ -18,7 +18,7 @@ class Docente extends Migration
             $table->string('Titulo',50);
             $table->enum('TipoDocente',['Piso','Hora']); //recordar que es para definir si es de piso o es por hora
             $table->date('FechaIngreso')->nullable();
-            $table->enum('Estatus','Activo','Inactivo');
+            $table->enum('Estatus',['Activo','Inactivo']);
             $table->timestamps();
 
             $table->foreign('DocenteId')->references('PersonaId')->on('tbl_persona')->onDelete('cascade');

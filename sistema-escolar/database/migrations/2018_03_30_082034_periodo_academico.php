@@ -13,7 +13,7 @@ class PeriodoAcademico extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_PeriodoAcademico', function (Blueprint $table) {
+        Schema::create('tbl_Periodoacademico', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('PeriodoId');
             $table->string('Descripcion',100);
