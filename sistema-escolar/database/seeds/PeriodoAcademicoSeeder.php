@@ -16,16 +16,24 @@ class PeriodoAcademicoSeeder extends Seeder
         //
         $faker = Faker::create();
 
-        for ($i = 0; $i < 10; $i++){
-           
+           $cont = 2018;
+           $descripcion = "este es un periodo de prueba activo";
             \DB::table('tbl_PeriodoAcademico')->insert(array(
-                'Descripcion' => str_random(70),
-                'Estatus' => $faker->randomElement(['Activo','Inactivo']),
+                'Descripcion' => $descripcion.' '.(string)$cont,  /*str_random(70)*/
+                'Estatus' => 'Activo' /*$faker->randomElement(['Activo','Inactivo'])*/,
                 'created_at' => date('Y-m-d H:m:s'),
                 'updated_at' => date('Y-m-d H:m:s')
             ));
-        
-        }
+
+            $cont = $cont - 1;
+            $descripcion = "este es un periodo de prueba inactivo";
+            \DB::table('tbl_PeriodoAcademico')->insert(array(
+                'Descripcion' => $descripcion.' '.(string)$cont,  /*str_random(70)*/
+                'Estatus' => 'Inactivo' /*$faker->randomElement(['Activo','Inactivo'])*/,
+                'created_at' => date('Y-m-d H:m:s'),
+                'updated_at' => date('Y-m-d H:m:s')
+            ));
+
 
     }
 }

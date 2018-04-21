@@ -18,7 +18,7 @@ class CicloLectivo extends Migration
             $table->increments('CicloId');
             $table->integer('PeriodoId')->unsigned();
             $table->string('Descripcion',100);
-            $table->string('TipoPeriodo',40);
+            $table->enum('TipoPeriodo',['Semestral','Trimestral']);
             $table->date('FechaInicio');
             $table->date('FechaFin');
             $table->enum('Estatus',['Activo','Inactivo']);
