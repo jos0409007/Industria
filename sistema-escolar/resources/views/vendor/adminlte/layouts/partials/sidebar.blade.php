@@ -33,17 +33,35 @@
             <!-- Optionally, you can add icons to the links -->
             @role('admin')
                 <li class="active"><a href="{{ url('home') }}"><i class='fa fa-users'></i> <span>Usuarios</span></a></li>
-                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Roles</span></a></li>
-                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Permisos</span></a></li>
-            @else
-                <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                </ul> else
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Roles</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Permisos</span></a></li>
             @endrole
-            </li>
+            @role('administracion')
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Docentes</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Alumnos</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Clases</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Secciones</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Ciclo lectivo</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Periodo académico</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Especialidades</span></a></li>
+                <li class="treeview">
+                    <a href="#"><i class='fa fa-link'></i> <span>Espacio físico</span> <i class="fa fa-angle-right pull-right"></i></a>
+                    <ul class="treeview-menu">
+                        <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Aulas</span></a></li>
+                        <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Edificios</span></a></li>
+                    </ul>
+                </li>
+            @endrole
+            @role('docente')
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Trabajos</span></a></li>
+            @endrole
+            @role('padre')
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Alumno</span></a></li>
+            @endrole
+            @role('alumno')
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Trabajos</span></a></li>
+            @endrole
+        </ul> 
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
