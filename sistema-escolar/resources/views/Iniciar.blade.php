@@ -1,7 +1,7 @@
 @extends('adminlte::layouts.auth')
 
 @section('htmlheader_title')
-    Log in
+    Iniciar sesión
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
     <div id="app" v-cloak>
         <div class="login-box">
             <div class="login-logo">
-                <a href="{{ url('/home') }}"><b>Admin</b>LTE</a>
+                <a href="{{ url('/home') }}">Sistema Escolar</a>
             </div><!-- /.login-logo -->
 
             @if (count($errors) > 0)
@@ -31,10 +31,10 @@
                             name="{{ config('auth.providers.users.field','email') }}"
                             domain="{{ config('auth.defaults.domain','') }}"
                     ></login-input-field>
-                    {{--<div class="form-group has-feedback">--}}
-                    {{--<input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email"/>--}}
-                    {{--<span class="glyphicon glyphicon-envelope form-control-feedback"></span>--}}
-                    {{--</div>--}}
+                    <div class="form-group has-feedback">
+                    <input type="email" class="form-control" placeholder="{{ trans('adminlte_lang::message.email') }}" name="email"/>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
                     <div class="form-group has-feedback">
                         <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.password') }}" name="password"/>
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -53,10 +53,6 @@
                     </div>
                 </form>
 
-                @include('adminlte::auth.partials.social_login')
-
-                <a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>
-                <a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>
 
             </div><!-- /.login-box-body -->
 
