@@ -31,16 +31,19 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Opciones</li>
             <!-- Optionally, you can add icons to the links -->
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-users'></i> <span>Usuarios</span></a></li>
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Roles</span></a></li>
-            <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Permisos</span></a></li>
-            <!--<li class="treeview">
+            @role('admin')
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-users'></i> <span>Usuarios</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Roles</span></a></li>
+                <li class="active"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>Permisos</span></a></li>
+            @else
+                <li class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
                     <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                </ul>
-            </li>->
+                </ul> else
+            @endrole
+            </li>
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
