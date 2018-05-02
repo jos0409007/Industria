@@ -16,7 +16,7 @@ class PeriodoAcademicoController extends Controller
     {
         //
         $periodoAcademico = PeriodoAcademico::get();
-        return view('periodoAcademico.index')->with('periodoAcademico',$periodoAcademico);
+        return view('periodoAcademico.index')->with('periodos',$periodoAcademico);
     }
 
     /**

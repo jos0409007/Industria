@@ -158,6 +158,7 @@ return [
         Laraveles\Spanish\SpanishServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Caffeinated\Shinobi\ShinobiServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Acacha AdminLTE template provider

@@ -1,22 +1,22 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prueba</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
-<body>
-    <div id="main" class="container">
-        <ul>
-            <li v-for="item in people">
-                @{{ item }}
-            </li>
-        </ul>
-        <input type="text" v-model='name' v-on:keyup.enter="addName">
-    </div>
+@extends('adminlte::layouts.app')
 
-    <script src="{{ asset('js/app.js') }}"></script>
-</body>
-</html>
+@section('main-content')
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+<div class="card-panel">
+    <div class="row">
+        {!! Form::open(['url' => 'foo/bar', 'class' => 'col s12']) !!}
+            <div class="input-field col s12">
+                {!! Form::label('nombre', 'Nombre', ['for' => 'nombre'] ) !!}
+                {!! Form::text('nombre', null , ['class' => 'form-control', 'id' => 'nombre', ]  ) !!}
+            </div>
+        {!! Form::close() !!}
+    </div>
+    
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+@endsection

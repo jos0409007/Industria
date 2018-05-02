@@ -18,6 +18,13 @@ Route::get('/iniciar-sesion', function () {
     return view('Iniciar');
 });
 
+Route::get('/prueba', function(){
+    return view('prueba');
+});
+
+Route::get('periodo', function(){
+     return redirect()->route('periodoacademico.index');
+});
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
