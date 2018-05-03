@@ -56,6 +56,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @include("usuarios.create")
                     </div>
 				</div>
 			</div>

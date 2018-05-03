@@ -56,4 +56,5 @@ Route::resource('seccion', 'SeccionController');
 Route::resource('trabajoalumnodetalle', 'TrabajoAlumnoDetalleController');
 Route::resource('trabajoasignaturaseccion', 'TrabajoAsignaturaSeccionController');
 Route::resource('trabajo', 'TrabajoController');
+Route::resource('usuario', 'UsuarioController');
 
