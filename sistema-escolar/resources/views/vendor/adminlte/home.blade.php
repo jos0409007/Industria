@@ -11,31 +11,49 @@
 			<div class="col-md-10 col-md-offset-1">
 				<div class="row">
 				@role('admin')	
-					<div class="col-md-3 col-md-offset-1">
-						<div class="info-box bg-green">
-							<span class="info-box-icon"><i class="fa fa-users"></i></span>
-							<div class="info-box-content">
-								<span class="info-box-text">Usuarios</span>
-								<span class="info-box-number"> {{ $usuarios->count() }} </span>
+					<div class="col-lg-3 col-xs-6 ">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+								<h3> {{ $usuarios->count() }} </h3>
+								<p>Usuarios</p>
 							</div>
+							<div class="icon">
+								<i class="fa fa-user"></i>
+							</div>
+							<a href="/usuario" class="small-box-footer">
+								Administrar
+								<i class="glyphicon glyphicon-cog"></i>
+							</a>
 						</div>
 					</div>
-					<div class="col-md-3 col-md-offset-1">
-						<div class="info-box bg-blue">
-							<span class="info-box-icon"><i class="fa fa-users"></i></span>
-							<div class="info-box-content">
-								<span class="info-box-text">Roles</span>
-								<span class="info-box-number"> {{ $roles->count() }} </span>
+					<div class="col-lg-3 col-xs-6 col-lg-offset-1">
+						<div class="small-box bg-green">
+							<div class="inner">
+								<h3> {{ $roles->count() }} </h3>
+								<p>Roles</p>
 							</div>
+							<div class="icon">
+								<i class="fa fa-users"></i>
+							</div>
+							<a href="/usuarios" class="small-box-footer">
+								Administrar
+								<i class="glyphicon glyphicon-cog"></i>
+							</a>
 						</div>
 					</div>
-					<div class="col-md-3 col-md-offset-1">
-						<div class="info-box bg-yellow">
-							<span class="info-box-icon"><i class="fa fa-users"></i></span>
-							<div class="info-box-content">
-								<span class="info-box-text">Permisos</span>
-								<span class="info-box-number"> {{ $permisos->count() }} </span>
+					<div class="col-lg-3 col-xs-6 col-lg-offset-1">
+						<div class="small-box bg-blue">
+							<div class="inner">
+								<h3> {{ $permisos->count() }} </h3>
+								<p>Permisos</p>
 							</div>
+							<div class="icon">
+								<i class="glyphicon glyphicon-eye-open"></i>
+							</div>
+							<a href="/usuarios" class="small-box-footer">
+								Administrar
+								<i class="glyphicon glyphicon-cog"></i>
+							</a>
 						</div>
 					</div>
 				@endrole()
