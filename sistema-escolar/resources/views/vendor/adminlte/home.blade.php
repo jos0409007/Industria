@@ -9,19 +9,38 @@
 	<div class="container-fluid spark-screen">
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-				<div class="box box-solid box-primary">
-					<div class="box-header with-border">
-						<h3 class="box-title">Inicio</h3>
-
-						<div class="box-tools pull-right">
-							<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-								<i class="fa fa-minus"></i></button>
+				<div class="row">
+				@role('admin')	
+					<div class="col-md-3 col-md-offset-1">
+						<div class="info-box bg-green">
+							<span class="info-box-icon"><i class="fa fa-users"></i></span>
+							<div class="info-box-content">
+								<span class="info-box-text">Usuarios</span>
+								<span class="info-box-number"> {{ $usuarios->count() }} </span>
+							</div>
 						</div>
 					</div>
-					<div class="box-body">
-						Cuerpo de la caja
+					<div class="col-md-3 col-md-offset-1">
+						<div class="info-box bg-blue">
+							<span class="info-box-icon"><i class="fa fa-users"></i></span>
+							<div class="info-box-content">
+								<span class="info-box-text">Roles</span>
+								<span class="info-box-number"> {{ $roles->count() }} </span>
+							</div>
+						</div>
 					</div>
+					<div class="col-md-3 col-md-offset-1">
+						<div class="info-box bg-yellow">
+							<span class="info-box-icon"><i class="fa fa-users"></i></span>
+							<div class="info-box-content">
+								<span class="info-box-text">Permisos</span>
+								<span class="info-box-number"> {{ $permisos->count() }} </span>
+							</div>
+						</div>
+					</div>
+				@endrole()
 				</div>
+
 			</div>
 		</div>
 	</div>

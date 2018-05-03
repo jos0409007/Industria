@@ -21,6 +21,7 @@ Route::get('/iniciar-sesion', function () {
 Route::get('/prueba', function(){
     return view('prueba');
 });
+Route::get('/home', 'RedirectController@home');
 
 Route::get('periodo', function(){
      return redirect()->route('periodoacademico.index');
