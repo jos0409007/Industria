@@ -69,7 +69,9 @@ class PeriodoAcademicoController extends Controller
     public function edit($id)
     {
         //
-        $periodoAcademico = PeriodoAcadmico::find($id);
+       // dd($id);
+        $periodoAcademico = PeriodoAcademico::find($id);
+
         return view('periodoAcademico.edit')->with('periodoAcademico',$periodoAcademico);
 
     }

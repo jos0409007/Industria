@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\CicloLectivo;
+use App\PeriodoAcademico;
 
 class CicloLectivoController extends Controller
 {
@@ -16,7 +17,7 @@ class CicloLectivoController extends Controller
     {
         //
         $ciclo = CicloLectivo::get();
-        return view('cicloLectivo.index')->with('ciclo',$ciclo);
+        return view('cicloLectivo.index')->with('ciclos',$ciclo);
     }
 
     /**
@@ -27,7 +28,9 @@ class CicloLectivoController extends Controller
     public function create()
     {
         //
-        return view('cicloLectivo.create');
+        $periodos = PeriodoAcademico::get();
+       // dd($periodos);
+        return view('cicloLectivo.create',['periodos'=>$periodos]);
     }
 
     /**

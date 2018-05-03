@@ -26,5 +26,12 @@
 @endforeach
 
 
+<select name="PeriodoId" id="PeriodoId" class="form-control">
+        <option value="" disabled selected>Selecciona un Periodo Academico</option>    
+        @foreach($periodos as $periodo)
+            <option value={{$periodo->PeriodoId}}> {{$periodo->Descripcion}} </option>
+        @endforeach
+    </select>
+
 
 

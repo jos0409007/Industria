@@ -6,12 +6,12 @@
 
 
 <div class="page-header">
-    <h1>Periodos Academicos</h1>
+    <h1>Ciclos Lectivos</h1>
     
 </div>
 <div class="container">
-    <h4>total de periodos: {{$periodos->count()}}</h4>
-    <a class="btn btn-success " href="{{ route('periodoacademico.create') }}" role="button">Nuevo Periodo</a>
+    <h4>total de ciclos: {{$ciclos->count()}}</h4>
+    <a class="btn btn-success " href="{{ route('ciclolectivo.create') }}" role="button">Nuevo Periodo</a>
 
     <br/>
     <br/>
@@ -31,17 +31,17 @@
         
             <tbody>
                 
-                @foreach($periodos as $periodo)
+                @foreach($ciclos as $ciclo)
                 <tr>
-                <td class="text-center">{{$periodo->PeriodoId}}</td>
-                <td class="text-center">{{$periodo->Descripcion}}</td>
-                <td class="text-center">{{$periodo->Estatus}}</td>
+                <td class="text-center">{{$ciclo->CicloId}}</td>
+                <td class="text-center">{{$ciclo->PeriodoId}}</td>
+                <td class="text-center">{{$ciclo->Estatus}}</td>
                 <td class="text-center">
-                    <a href="{{route('periodoacademico.edit',$periodo->PeriodoId)}}">
+                    <a href="{{route('ciclolectivo.edit',$ciclo->CicloId)}}">
                         <button type="button" id="actualizar" class="btn btn-info">Editar</button>
                     </a>
 
-                    {{ Form::open(array('route' => array('periodoacademico.destroy', $periodo->PeriodoId), 'class' => 'pull-right')) }}
+                    {{ Form::open(array('route' => array('ciclolectivo.destroy', $ciclo->CicloId), 'class' => 'pull-right')) }}
                     {{ Form::hidden('_method', 'DELETE') }}
                     {{ Form::submit('Eliminar', array('class' => 'btn btn-warning')) }}
                     {{ Form::close() }}
