@@ -10,12 +10,14 @@
 		<div id="crud-usuario" class="row">
 			<div class="col-md-10 col-md-offset-1">
                 <div class="row">
-                    <div class="col-md-3 col-md-offset-2">
-                        <div class="info-box bg-green">
-                            <span class="info-box-icon"><i class="fa fa-users"></i></span>
-                            <div class="info-box-content">
-                                <span class="info-box-text">Usuarios</span>
-                                <span class="info-box-number">{{ $usuarios->count() }}</span>
+                    <div class="col-lg-3 col-xs-6 col-lg-offset-3">
+                        <div class="small-box bg-aqua">
+                            <div class="inner">
+                                <h3> {{ $usuarios->count() }} </h3>
+                                <p>Usuarios</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-user"></i>
                             </div>
                         </div>
                     </div>
@@ -56,6 +58,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        @include("usuarios.create")
                     </div>
 				</div>
 			</div>

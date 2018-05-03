@@ -21,6 +21,7 @@ Route::get('/iniciar-sesion', function () {
 Route::get('/prueba', function(){
     return view('prueba');
 });
+Route::get('/home', 'RedirectController@home');
 
 Route::get('periodo', function(){
      return redirect()->route('periodoacademico.index');
@@ -56,4 +57,5 @@ Route::resource('seccion', 'SeccionController');
 Route::resource('trabajoalumnodetalle', 'TrabajoAlumnoDetalleController');
 Route::resource('trabajoasignaturaseccion', 'TrabajoAsignaturaSeccionController');
 Route::resource('trabajo', 'TrabajoController');
+Route::resource('usuario', 'UsuarioController');
 
