@@ -70,7 +70,7 @@ class PeriodoAcademicoController extends Controller
     {
         //
        // dd($id);
-        $periodoAcademico = PeriodoAcademico::findofFail($id);
+        $periodoAcademico = PeriodoAcademico::findorFail($id);
         if ($periodoAcademico){
             
             return view('periodoAcademico.edit')->with('periodoAcademico',$periodoAcademico);

@@ -40,17 +40,18 @@
                 
                 <tbody>
                         
-                    @foreach($periodos as $periodo)
+                    @foreach($periodos as $periodoAcademico)
                     <tr>
-                    <td class="text-center">{{$periodo->PeriodoId}}</td>
-                    <td class="text-center">{{$periodo->Descripcion}}</td>
-                    <td class="text-center">{{$periodo->Estatus}}</td>
+                    <td class="text-center">{{$periodoAcademico->PeriodoId}}</td>
+                    <td class="text-center">{{$periodoAcademico->Descripcion}}</td>
+                    <td class="text-center">{{$periodoAcademico->Estatus}}</td>
                     <td class="text-center">
-                        <a href="{{route('periodoacademico.edit',$periodo->PeriodoId)}}">
+                    <!--    <a href="{{route('periodoacademico.edit',$periodoAcademico->PeriodoId)}}">
                             <button type="button" id="actualizar" class="btn btn-info">Editar</button>
-                        </a>
+                        </a>-->
+                        <a href="#update{{ $periodoAcademico->PeriodoId }}" class="btn btn-info" data-toggle="modal"  >Editar</a>
 
-                        {{ Form::open(array('route' => array('periodoacademico.destroy', $periodo->PeriodoId), 'class' => 'pull-right')) }}
+                        {{ Form::open(array('route' => array('periodoacademico.destroy', $periodoAcademico->PeriodoId), 'class' => 'pull-right')) }}
                         {{ Form::hidden('_method', 'DELETE') }}
                         {{ Form::submit('Eliminar', array('class' => 'btn btn-warning')) }}
                         {{ Form::close() }}
@@ -58,13 +59,14 @@
                     </td>
                 
                     </tr>
+                    @include("periodoacademico.edit")
                     @endforeach
             
             
                 </tbody>
             </table>
             @include("periodoacademico.create")
-            @include("periodoacademico.edit")
+      
         </div>
 
 </div>>

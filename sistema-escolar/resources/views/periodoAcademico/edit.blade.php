@@ -1,6 +1,6 @@
 
 
-<div class="modal fade" id="update">
+<div class="modal fade" id="update{{ $periodoAcademico->PeriodoId }}">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
