@@ -1,11 +1,25 @@
-@extends('adminlte::layouts.app')
-@section('main-content')
-<h4 class="text-cecnter">{{$periodoAcademico->Descripcion}}</h4>
-
-    {!! Form::model($periodoAcademico, ['route'=>'periodoacademico.store', 'method'=>'PUT'])!!}
-    @include('periodoAcademico.partial.campos')
-    <button type="submit" class="btn btn-success btn-block">guardar</button>
-    {!! Form::close() !!}
 
 
-@endsection
+<div class="modal fade" id="update">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>x</span>
+                    </button>
+                    <h4>Agregar usuario</h4>
+                </div>
+                <div class="modal-body">
+                        {!! Form::model($periodoAcademico, ['route'=>'periodoacademico.store', 'method'=>'PUT'])!!}
+                        @include('periodoAcademico.partial.campos')
+                        <button type="submit" class="btn btn-success btn-block">guardar</button>
+                        {!! Form::close() !!}
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" value="Guardar" class="btn btn-primary">
+                </div>
+            </div>
+        </div>
+    
+    </div>
+    

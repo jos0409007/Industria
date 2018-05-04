@@ -22,10 +22,11 @@ Route::get('/prueba', function(){
     return view('prueba');
 });
 Route::get('/home', 'RedirectController@home');
-
+/*
 Route::get('periodo', function(){
      return redirect()->route('periodoacademico.index');
 });
+*/
 Route::group(['middleware' => 'auth'], function () {
     //    Route::get('/link1', function ()    {
 //        // Uses Auth Middleware
