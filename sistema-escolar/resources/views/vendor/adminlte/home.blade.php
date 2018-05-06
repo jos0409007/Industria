@@ -35,7 +35,7 @@
 							<div class="icon">
 								<i class="fa fa-users"></i>
 							</div>
-							<a href="/usuarios" class="small-box-footer">
+							<a href="/rol" class="small-box-footer">
 								Administrar
 								<i class="glyphicon glyphicon-cog"></i>
 							</a>
@@ -50,7 +50,7 @@
 							<div class="icon">
 								<i class="glyphicon glyphicon-eye-open"></i>
 							</div>
-							<a href="/usuarios" class="small-box-footer">
+							<a href="/permiso" class="small-box-footer">
 								Administrar
 								<i class="glyphicon glyphicon-cog"></i>
 							</a>

@@ -22,6 +22,7 @@ Route::get('/prueba', function(){
     return view('prueba');
 });
 Route::get('/home', 'RedirectController@home');
+Route::resource('rol', 'RolController');
 /*
 Route::get('periodo', function(){
      return redirect()->route('periodoacademico.index');
