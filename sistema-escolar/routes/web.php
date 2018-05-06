@@ -23,6 +23,7 @@ Route::get('/prueba', function(){
 });
 Route::get('/home', 'RedirectController@home');
 Route::resource('rol', 'RolController');
+Route::resource('permiso', 'PermisoController');
 /*
 Route::get('periodo', function(){
      return redirect()->route('periodoacademico.index');

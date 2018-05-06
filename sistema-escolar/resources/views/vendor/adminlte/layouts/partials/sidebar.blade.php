@@ -34,7 +34,7 @@
             @role('admin')
                 <li class="active"><a href="{{ url('/usuario') }}"><i class='fa fa-user'></i> <span>Usuarios</span></a></li>
                 <li class="active"><a href="{{ url('/rol') }}"><i class='fa fa-users'></i> <span>Roles</span></a></li>
-                <li class="active"><a href="{{ url('home') }}"><i class='glyphicon glyphicon-eye-open'></i> <span>Permisos</span></a></li>
+                <li class="active"><a href="{{ url('permiso') }}"><i class='glyphicon glyphicon-eye-open'></i> <span>Permisos</span></a></li>
             @endrole
             @role('administracion')
                 <li class="active"><a href="{{ url('home') }}"><i class='fa fa-gears'></i> <span>Docentes</span></a></li>
