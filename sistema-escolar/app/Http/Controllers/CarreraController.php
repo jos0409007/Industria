@@ -15,8 +15,8 @@ class CarreraController extends Controller
     public function index()
     {
         //
-        $carrera = Carrera::get();
-        return view('carrera.index')->with('carrera',$carrera);
+        $carreras = Carrera::get();
+        return view('carrera.index')->with('carreras',$carreras);
     }
 
     /**
@@ -41,7 +41,7 @@ class CarreraController extends Controller
         //
         $carrera = new Carrera;
         $carrera->Nombre =  $request->input('Nombre');
-        $carrera->Descricpion = $request->input('Descripcion');
+        $carrera->Descripcion = $request->input('Descripcion');
         $carrera->save();
 
         return redirect()->route('carrera.index');

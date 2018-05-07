@@ -15,8 +15,8 @@ class EspecialidadController extends Controller
     public function index()
     {
         //
-        $especialidad = Especialidad::get();
-        return view('especialidad.index')->with('especialidad',$especialidad);
+        $especialidades = Especialidad::get();
+        return view('especialidad.index')->with('especialidades',$especialidades);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\CicloLectivo;
 use App\PeriodoAcademico;
+use Illuminate\Support\Facades\DB;
 
 class CicloLectivoController extends Controller
 {
@@ -16,8 +17,14 @@ class CicloLectivoController extends Controller
     public function index()
     {
         //
-        $ciclo = CicloLectivo::get();
-        return view('cicloLectivo.index')->with('ciclos',$ciclo);
+        $ciclo = DB::table('tbl_cicloLectivo as c')->orderBy('c.CicloId', 'DESC')
+        ->select('c.CicloId','c.PeriodoId','p.Descripcion as perDescripcion','c.Descripcion','c.Estatus')
+        ->join('tbl_periodoAcademico as p', 'c.PeriodoId', '=', 'p.PeriodoId')->get();
+      //  dd($ciclo);
+        $cicloLectivo = CicloLectivo::get();
+        $periodos = DB::table('tbl_periodoAcademico')->where('Estatus', '=', 'Activo')->get();
+       // dd($periodos);
+        return view('cicloLectivo.index',['ciclos' => $ciclo, 'periodos'=> $periodos, 'cicloLectivo' => $cicloLectivo]);
     }
 
     /**
@@ -76,10 +83,11 @@ class CicloLectivoController extends Controller
     public function edit($id)
     {
         //
+  
+        $ciclo = CicloLectivo::find($id);
+        $periodos = PeriodoAcademico::get();
 
-        $ciclo = CiloLectivo::find($id);
-        
-        return view('cicloLectivo.edit')->with('ciclo', $ciclo);
+        return view('cicloLectivo.edit',['ciclo'=> $ciclo, 'periodos' => $periodos ]);
 
     }
 
@@ -94,7 +102,7 @@ class CicloLectivoController extends Controller
     {
         //
         
-        $ciclo = CiloLectivo::find($id);
+        $ciclo = CicloLectivo::find($id);
         $ciclo->PeriodoId = $request->input('PeriodoId');
         $ciclo->Descripcion = $request->input('Descripcion');
         $ciclo->TipoPeriodo = $request->input('TipoPeriodo');
