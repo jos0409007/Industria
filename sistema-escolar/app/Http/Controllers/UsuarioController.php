@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Caffeinated\Shinobi\Models\Role;
 
 class UsuarioController extends Controller
 {
@@ -66,10 +67,11 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
+        $roles = Role::get();
         $usuario = User::findorFail($id);
         if ($usuario){
             
-            return view('usuarios.editar')->with('usuario',$usuario);
+            return view('usuarios.editar')->with('usuario',$usuario)->with('roles', $roles);
 
         }
     }
@@ -88,6 +90,8 @@ class UsuarioController extends Controller
         $user->email = request()->input('email');
         $user->password = $user->password;
         $user->save();
+
+        $user->roles()->sync($request->get('roles'));
 
         return redirect()->route('usuario.index');
     }

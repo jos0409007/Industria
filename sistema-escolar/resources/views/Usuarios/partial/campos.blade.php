@@ -6,5 +6,7 @@
         {!! Form::label('Correo electrónico', 'Correo electrónico', ['for'=>'email']) !!}
         {!! Form::email('email', null , ['class' => 'form-control', 'name' =>'email', 'placeholder' => 'Correo electrónico'])!!}      
 </div>
+<hr>
+
 
     

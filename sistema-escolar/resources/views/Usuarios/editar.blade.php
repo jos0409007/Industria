@@ -20,6 +20,19 @@
                     <div class="box-body">
                         {{ Form::model($usuario, array('route' => array('usuario.update', $usuario->id), 'method' => 'PUT')) }}
                             @include('usuarios.partial.campos')
+                            <div class="form-group">
+                                <ul class="list-unstyled">
+                                    @foreach ($roles as $rol)
+                                        <li>
+                                            <label>
+                                                {{ Form::checkbox('roles[]', $rol->id, null) }}
+                                                {{ $rol->name }}
+                                                <em>({{ $rol->description ?: "Sin descripción" }})</em>
+                                            </label>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             {{ Form::submit('Actualizar', array('class' => 'btn btn-primary')) }}
                         {{ Form::close() }}
 
