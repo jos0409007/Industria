@@ -21,9 +21,9 @@
                             </div>
                         </div>
                     </div>
-                    <!--<div class="col-sm-3">
+                    <div class="col-sm-3">
                         <a href="#" class="btn btn-primary pull-right btn-lg" data-toggle="modal" data-target="#create" >Nuevo usuario</a>
-                    </div>-->
+                    </div>
                 </div>
 				<div class="box box-solid box-primary">
 					<div class="box-header with-border">
@@ -58,7 +58,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <!--@include("usuarios.create")-->
+                        @include("usuarios.create")
                     </div>
 				</div>
 			</div>

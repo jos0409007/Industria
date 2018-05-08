@@ -25,9 +25,7 @@
 								<i class="glyphicon glyphicon-cog"></i>
 							</a>
 						</div>
-						<div class="col-sm-10 col-md-offset-1">
-							<a href="#" class="btn btn-primary pull-right btn-lg" data-toggle="modal" data-target="#create-user" >Nuevo usuario</a>
-						</div>
+
 					</div>
 					<div class="col-lg-3 col-xs-6 col-lg-offset-1">
 						<div class="small-box bg-green">
@@ -59,7 +57,6 @@
 							</a>
 						</div>
 					</div>
-					@include("usuarios.create")
 				@endrole()
 				</div>
 
