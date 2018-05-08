@@ -13,7 +13,7 @@
                     <div class="col-lg-3 col-xs-6 col-lg-offset-3">
                         <div class="small-box bg-aqua">
                             <div class="inner">
-                                <h3> {{ $usuarios->count() }} </h3>
+                                <h3> {{ $usuarios1->count() }} </h3>
                                 <p>Usuarios</p>
                             </div>
                             <div class="icon">
@@ -58,6 +58,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {!! $usuarios->render() !!}
                         @include("usuarios.create")
                     </div>
 				</div>

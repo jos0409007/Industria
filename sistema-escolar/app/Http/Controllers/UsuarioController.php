@@ -14,8 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = User::get();
-        return view('usuarios.index')->with('usuarios', $usuarios);
+        $usuarios1 = User::get();
+        $usuarios = User::paginate(25);
+        return view('usuarios.index')->with('usuarios', $usuarios)->with('usuarios1', $usuarios1);
     }
 
     /**
