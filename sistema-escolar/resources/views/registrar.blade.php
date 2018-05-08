@@ -1,12 +1,5 @@
-@extends('adminlte::layouts.auth')
 
-@section('htmlheader_title')
-    Nuevo usuario
-@endsection
 
-@section('content')
-
-    <body class="hold-transition register-page">
     <div id="app" v-cloak>
         <div class="register-box">
             @if (count($errors) > 0)
@@ -43,46 +36,20 @@
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <input type="password" class="form-control" placeholder="{{ trans('adminlte_lang::message.retrypepassword') }}" name="password_confirmation"/>
+                        <input type="password" class="form-control" placeholder="{{ "Repetir contraseña" }}" name="password_confirmation"/>
                         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
                     </div>
                     <div class="row">
-                        <div class="col-xs-1">
-                            <label>
-                                <div class="checkbox_register icheck">
-                                    <label>
-                                        <input type="checkbox" name="terms">
-                                    </label>
-                                </div>
-                            </label>
-                        </div><!-- /.col -->
                         <div class="col-xs-4 col-xs-push-1">
                             <button type="submit" class="btn btn-primary btn-block btn-flat">{{ trans('adminlte_lang::message.register') }}</button>
                         </div><!-- /.col -->
                     </div>
                 </form>
-
-                @include('adminlte::auth.partials.social_login')
-
-                <a href="{{ url('/login') }}" class="text-center">{{ trans('adminlte_lang::message.membership') }}</a>
             </div><!-- /.form-box -->
         </div><!-- /.register-box -->
     </div>
 
-    @include('adminlte::layouts.partials.scripts_auth')
+    
 
-    @include('adminlte::auth.terms')
 
-    <script>
-      $(function () {
-        $('input').iCheck({
-          checkboxClass: 'icheckbox_square-blue',
-          radioClass: 'iradio_square-blue',
-          increaseArea: '20%' // optional
-        });
-      });
-    </script>
 
-    </body>
-
-@endsection

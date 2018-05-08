@@ -36,7 +36,14 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $usuario = new User;
+        $usuario->name = $request->input('Nombre');
+        $usuario->email = $request->input('email');
+        $usuario->password = $request->input('pass');
+
+        $usuario->save();
+
+        return redirect()->route('usuario.index');
     }
 
     /**

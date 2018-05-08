@@ -8,10 +8,7 @@
                 <h4>Agregar usuario</h4>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <input type="submit" value="Guardar" class="btn btn-primary">
+                    @include('registrar')
             </div>
         </div>
     </div>
