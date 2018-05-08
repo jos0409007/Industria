@@ -21,9 +21,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <!--<div class="col-sm-3">
                         <a href="#" class="btn btn-primary pull-right btn-lg" data-toggle="modal" data-target="#create" >Nuevo usuario</a>
-                    </div>
+                    </div>-->
                 </div>
 				<div class="box box-solid box-primary">
 					<div class="box-header with-border">
@@ -51,14 +51,14 @@
                                         <td> {{ $usuario->name }} </td>
                                         <td> {{ $usuario->email }} </td>
                                         <td>
-                                            <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                                            <a href="{{route('usuario.edit',$usuario->id)}}" class="btn btn-warning btn-sm" data-toggle="modal">Editar</a>
                                             <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                        @include("usuarios.create")
+                        <!--@include("usuarios.create")-->
                     </div>
 				</div>
 			</div>

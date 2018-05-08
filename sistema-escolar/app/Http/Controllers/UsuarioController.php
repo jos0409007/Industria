@@ -65,7 +65,12 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::findorFail($id);
+        if ($usuario){
+            
+            return view('usuarios.editar')->with('usuario',$usuario);
+
+        }
     }
 
     /**
@@ -77,7 +82,13 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->name = request()->input('name');
+        $user->email = request()->input('email');
+        $user->password = $user->password;
+        $user->save();
+
+        return redirect()->route('usuario.index');
     }
 
     /**
