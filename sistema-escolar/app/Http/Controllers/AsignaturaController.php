@@ -15,8 +15,8 @@ class AsignaturaController extends Controller
     public function index()
     {
         //
-        $asignatura = Asignatura::get();
-        return view('asignatura.index')->with('asignatura',$asignatura);
+        $asignaturas = Asignatura::get();
+        return view('asignatura.index')->with('asignaturas',$asignaturas);
     }
 
     /**
@@ -41,7 +41,7 @@ class AsignaturaController extends Controller
         //
         $asignatura = new Asignatura;
         $asignatura->Nombre = $request->input('Nombre');
-        $asignatura->Especialidad = $request->input('Especialidad');
+        $asignatura->Especialidad = $request->input('EspecialidadId');
         $asignatura->Unidadvalorativa = $request->input('UnidadValorativa');
 
         $asignatura->save();
@@ -85,7 +85,7 @@ class AsignaturaController extends Controller
         $asignatura = Asignatura::find($id);
 
         $asignatura->Nombre = $request->input('Nombre');
-        $asignatura->Especialidad = $request->input('Especialidad');
+        $asignatura->Especialidad = $request->input('EspecialidadId');
         $asignatura->Unidadvalorativa = $request->input('UnidadValorativa');
 
         $asignatura->save();

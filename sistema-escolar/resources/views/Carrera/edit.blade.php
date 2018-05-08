@@ -1,6 +1,5 @@
 
-
-<div class="modal fade" id="update{{ $periodoAcademico->PeriodoId }}">
+<div class="modal fade" id="update{{ $carrera->CarreraId }}">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -10,14 +9,12 @@
                     <h4>Editar</h4>
                 </div>
                 <div class="modal-body">
-                        {!! Form::model($periodoAcademico, ['route'=>['periodoacademico.update', $periodoAcademico], 'method'=>'PUT'])!!}
-                        @include('periodoAcademico.partial.campos')
+                        {!! Form::model($carrera, ['route'=>['carrera.update', $carrera], 'method'=>'PUT'])!!}
+                        @include('carrera.partial.campos')
                         <button type="submit" class="btn btn-success btn-block">guardar</button>
                         {!! Form::close() !!}
                 </div>
-                <div class="modal-footer">
-                    <input type="submit" value="Guardar" class="btn btn-primary">
-                </div>
+             
             </div>
         </div>
     

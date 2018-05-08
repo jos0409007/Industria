@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Parcial;
+use App\CicloLectivo;
+use Illuminate\Support\Facades\DB;
 
 class ParcialController extends Controller
 {
@@ -15,8 +17,13 @@ class ParcialController extends Controller
     public function index()
     {
         //
-        $parcial = Parcial::get();
-        return view('parcial.index')->with('parcial',$parcial);
+        $consulta = DB::table('tbl_Parcial as p')->orderBy('p.ParcialId', 'DESC')
+        ->select('p.ParcialId','p.Descripcion','p.FechaInicio', 'p.FechaFin', 'p.Estatus', 'c.Descripcion as cicloDesc')
+        ->join('tbl_cicloLectivo as c', 'p.CicloId', '=', 'c.CicloId')->get();
+        $parciales = Parcial::get();
+        
+        $ciclos = CicloLectivo::get();
+        return view('parcial.index',['parciales' => $parciales, 'consulta' => $consulta, 'ciclos' => $ciclos]);
     }
 
     /**
@@ -39,7 +46,7 @@ class ParcialController extends Controller
     public function store(Request $request)
     {
         //
-
+       // dd($request->input('CicloId'));
         $parcial = new Parcial;
         $parcial->CicloId = $request->input('CicloId');
         $parcial->Descripcion = $request->input('Descripcion');

@@ -1,10 +1,10 @@
 <div class="form-group">
 
-        {!! Form::label('PeriodoId', 'Periodo Academico', ['for'=>'PeriodoId']) !!}
-        <select name="PeriodoId" id="PeriodoId" class="form-control">
-            <option value="" disabled selected>Selecciona un periodo Academico</option>
-            @foreach( $periodos as $periodo )
-            <option value={{$periodo->PeriodoId}}>{{$periodo->Descripcion}}</option>
+        {!! Form::label('CicloId', 'Ciclo Lectivo', ['for'=>'CicloId']) !!}
+        <select name="CicloId" id="CicloId" class="form-control">
+            <option value="" disabled selected>Selecciona un ciclo lectivo</option>
+            @foreach( $ciclos as $ciclo )
+            <option value={{$ciclo->CicloId}}>{{$ciclo->Descripcion}}</option>
            
             @endforeach
         </select>
@@ -15,13 +15,6 @@
        
         </div>
 
-        <div class="form-group">
-            {!! Form::label('TipoPeriodo', 'Tipo Periodo', ['for' => 'TipoPeriodo']) !!}
-            {!! Form::select('TipoPeriodo', ['Semestral' => 'Semestral', 'Trimestral' => 'Trimestral'], null,
-                ['placeholder' => 'Seleccione un tipo de periodo', 'class' => 'form-control', 'name' => 'TipoPeriodo']
-            )!!}
-         
-        </div>
 
         <div class="form-gorup">
             {!! Form::label('FechaInicio', 'Fecha Inicio', ['for' => 'FechaInicio']) !!}
