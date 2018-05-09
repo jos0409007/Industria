@@ -9,8 +9,8 @@ class AsignaturaCarrera extends Model
     protected $table = 'tbl_AsignaturaCarrera';
 
     protected $primaryKey = 'AsignaturaCarreraId';
-    public $incrementing = false;
-    protected $keyType = string;
+    //public $incrementing = false;
+   // protected $keyType = string;
 
     protected $fillable = ['AsignaturaCarreraId','AsignaturaId','CarreraId'];
 

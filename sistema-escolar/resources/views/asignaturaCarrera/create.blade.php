@@ -9,8 +9,8 @@
                     <h4>Agregar Asignatura</h4>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>'asignatura.store', 'method'=>'POST'])!!}
-                        @include('asignatura.partial.campos')
+                    {!! Form::open(['route'=>'asignaturacarrera.store', 'method'=>'POST'])!!}
+                        @include('asignaturaCarrera.partial.campos')
                          <button type="submit" class="btn btn-primary">guardar</button>
                      {!! Form::close() !!}
     

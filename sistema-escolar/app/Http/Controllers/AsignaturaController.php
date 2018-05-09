@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Asignatura;
+use App\Especialidad;
+use Illuminate\Support\Facades\DB;
 
 class AsignaturaController extends Controller
 {
@@ -16,7 +18,16 @@ class AsignaturaController extends Controller
     {
         //
         $asignaturas = Asignatura::get();
-        return view('asignatura.index')->with('asignaturas',$asignaturas);
+        $consulta = DB::table('tbl_Asignatura as a')
+        ->select('a.AsignaturaId','a.Nombre','a.EspecialidadId','a.UnidadValorativa', 'e.Nombre as Especialidad')
+        ->join('tbl_Especialidad as e', 'a.EspecialidadId', '=', 'e.EspecialidadId')
+        ->get();
+
+       // dd($consulta);
+        $especialidades = Especialidad::get();
+        
+        return view('asignatura.index',['asignaturas'=>$asignaturas, 
+        'consulta' => $consulta, 'especialidades' => $especialidades]);
     }
 
     /**
@@ -41,7 +52,7 @@ class AsignaturaController extends Controller
         //
         $asignatura = new Asignatura;
         $asignatura->Nombre = $request->input('Nombre');
-        $asignatura->Especialidad = $request->input('EspecialidadId');
+        $asignatura->EspecialidadId = $request->input('EspecialidadId');
         $asignatura->Unidadvalorativa = $request->input('UnidadValorativa');
 
         $asignatura->save();
