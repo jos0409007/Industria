@@ -49,11 +49,11 @@
                                 @foreach($permisos as $permiso)
                                     <tr>
                                         <td width = "1px"> {{ $permiso->id }} </td>
-                                        <td width = "1px"> {{ $permiso->name }} </td>
+                                        <td width = "10px"> {{ $permiso->name }} </td>
                                         <td width = "1px"> {{ $permiso->slug }} </td>
                                         <td width = "1px"> {{ $permiso->description }} </td>
-                                        <td width = "1px">
-                                            <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                                        <td width = "150px">
+                                            <a href="{{route('permiso.edit',$permiso->id)}}" class="btn btn-warning btn-sm">Editar</a>
                                             <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
                                         </td>
                                     </tr>

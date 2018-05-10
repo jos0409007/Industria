@@ -8,10 +8,10 @@
                 <h4>Agregar permiso</h4>
             </div>
             <div class="modal-body">
-                ...
-            </div>
-            <div class="modal-footer">
-                <input type="submit" value="Guardar" class="btn btn-primary">
+                {!! Form::open(['route'=>'permiso.store', 'method'=>'POST'])!!}
+                    @include('permisos.partial.campos')
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                {!! Form::close() !!}
             </div>
         </div>
     </div>

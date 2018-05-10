@@ -40,7 +40,7 @@ class RolController extends Controller
         $rol = new Role;
         $rol->name = $request->input('name');
         $rol->slug = $request->input('slug');
-        $rol->description = $request->input('descripcion');
+        $rol->description = $request->input('description');
 
         $rol->save();
 
@@ -87,7 +87,7 @@ class RolController extends Controller
         $rol = Role::findOrFail($id);
         $rol->name = $request->input('name');
         $rol->slug = $request->input('slug');
-        $rol->description = $request->input('descripcion');
+        $rol->description = $request->input('description');
         $rol->save();
         $rol->permissions()->sync($request->get('permisos'));
 

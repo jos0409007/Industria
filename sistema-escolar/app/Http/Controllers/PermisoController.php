@@ -37,7 +37,14 @@ class PermisoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $permisos = new Permission;
+        $permisos->name = $request->input('name');
+        $permisos->slug = $request->input('slug');
+        $permisos->description = $request->input('description');
+
+        $permisos->save();
+
+        return redirect()->route('permiso.index');
     }
 
     /**
@@ -59,7 +66,12 @@ class PermisoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permisos = Permission::findorFail($id);
+        if ($permisos){
+            
+            return view('permisos.editar')->with('permisos', $permisos);
+
+        }
     }
 
     /**
@@ -71,7 +83,13 @@ class PermisoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $permisos = Permission::findOrFail($id);
+        $permisos->name = $request->input('name');
+        $permisos->slug = $request->input('slug');
+        $permisos->description = $request->input('description');
+        $permisos->save();
+
+        return redirect()->route('permiso.index');
     }
 
     /**
