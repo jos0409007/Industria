@@ -14,8 +14,8 @@ class AulaController extends Controller
      */
     public function __construct(){ //Método constructor
         $this->middleware('auth');
-        /**$this->middleware('permission:aula.index')->only('index');
-        $this->middleware('permission:aula.create')->only('create');
+        $this->middleware('permission:aula.index')->only('index');
+        /**$this->middleware('permission:aula.create')->only('create');
         $this->middleware('permission:aula.destroy')->only('destroy');
         $this->middleware('permission:aula.show')->only('show');
         $this->middleware('permission:aula.update')->only('update');**/

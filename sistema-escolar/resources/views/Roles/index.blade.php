@@ -53,7 +53,7 @@
                                         <td> {{ $rol->slug }} </td>
                                         <td> {{ $rol->description }} </td>
                                         <td>
-                                            <a href="#" class="btn btn-warning btn-sm">Editar</a>
+                                            <a href="{{route('rol.edit',$rol->id)}}" class="btn btn-warning btn-sm">Editar</a>
                                             <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
                                         </td>
                                     </tr>

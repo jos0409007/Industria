@@ -10,3 +10,4 @@
     {!! Form::label('Descripción', 'Descripcion', ['for'=>'descripcion']) !!}
     {!! Form::text('descripcion', null , ['class' => 'form-control', 'name' =>'descripcion', 'placeholder' => 'Descripción'])!!}      
 </div>
+<hr>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Caffeinated\Shinobi\Models\Role;
+use Caffeinated\Shinobi\Models\Permission;
 
 class RolController extends Controller
 {
@@ -65,7 +66,13 @@ class RolController extends Controller
      */
     public function edit($id)
     {
-        //
+        $permisos = Permission::paginate(25);
+        $roles = Role::findorFail($id);
+        if ($roles){
+            
+            return view('roles.editar')->with('roles',$roles)->with('permisos', $permisos);
+
+        }
     }
 
     /**
@@ -77,7 +84,14 @@ class RolController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rol = Role::findOrFail($id);
+        $rol->name = $request->input('name');
+        $rol->slug = $request->input('slug');
+        $rol->description = $request->input('descripcion');
+        $rol->save();
+        $rol->permissions()->sync($request->get('permisos'));
+
+        return redirect()->route('rol.index');
     }
 
     /**
