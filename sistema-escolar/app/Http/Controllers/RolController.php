@@ -36,7 +36,14 @@ class RolController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rol = new Role;
+        $rol->name = $request->input('name');
+        $rol->slug = $request->input('slug');
+        $rol->description = $request->input('descripcion');
+
+        $rol->save();
+
+        return redirect()->route('rol.index');
     }
 
     /**

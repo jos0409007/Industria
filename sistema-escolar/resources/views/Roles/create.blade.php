@@ -8,11 +8,12 @@
                 <h4>Agregar rol</h4>
             </div>
             <div class="modal-body">
-                ...
+                {!! Form::open(['route'=>'rol.store', 'method'=>'POST'])!!}
+                    @include('roles.partial.campos')
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                {!! Form::close() !!}
             </div>
-            <div class="modal-footer">
-                <input type="submit" value="Guardar" class="btn btn-primary">
-            </div>
+
         </div>
     </div>
 

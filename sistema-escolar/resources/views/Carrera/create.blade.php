@@ -11,7 +11,7 @@
                 {!! Form::open(['route'=>'carrera.store', 'method'=>'POST'])!!}
                     @include('carrera.partial.campos')
                         <button type="submit" class="btn btn-primary">guardar</button>
-                    {!! Form::close() !!}
+                {!! Form::close() !!}
 
             </div>
             
