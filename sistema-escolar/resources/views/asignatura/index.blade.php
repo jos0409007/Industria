@@ -1,10 +1,81 @@
 @extends('adminlte::layouts.app')
+@section('htmlheader_title')
+	{{ trans('adminlte_lang::message.home') }}
+@endsection
 
 @section('main-content')
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
 
-<div class="page-header">
+    <div class="container-fluid spark-screen">
+        <div id="crud-usuario" class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-lg-3 col-xs-6 col-lg-offset-3">
+                        <div class="small-box bg-green">
+                            <div class="inner">
+                                <h3> {{ $asignaturas->count() }} </h3>
+                                <p>Asignaturas</p>
+                            </div>
+                            <div class="icon">
+                                <i class="fa fa-book"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="#" class="btn btn-primary pull-right btn-lg" data-toggle="modal" data-target="#create" >Nueva asignatura</a>
+                    </div>
+                </div>
+                <div class="box box-solid box-primary">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Lista de asignaturas</h3>
+
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                                <i class="fa fa-minus"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body">
+                        <table class="table table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Especialidad</th>
+                                    <th>UV</th>
+                                    <th colspan="2">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($asignaturas as $asignatura)
+                                    <tr>
+                                        <td width="10px"> {{ $asignatura->AsignaturaId }} </td>
+                                        <td> {{ $asignatura->Nombre }} </td>
+                                        <td> {{ $asignatura->Especialidad }} </td>
+                                        <td> {{ $asignatura->UnidadValorativa }} </td>
+                                        <td width="180px">
+                                            <a href="{{route('asignatura.edit',$asignatura->AsignaturaId)}}" class="btn btn-warning">Editar</a>
+                                            {{ Form::open(array('route' => array('asignatura.destroy', $asignatura->AsignaturaId), 'class' => 'pull-right')) }}
+                                                {{ Form::hidden('_method', 'DELETE') }}
+                                                {{ Form::submit('Eliminar', array('class' => 'btn btn-danger')) }}
+                                            {{ Form::close() }}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                        @include("asignatura.create")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<!--<div class="page-header">
     <h1>Ciclos Lectivos</h1>
    
 </div>
@@ -64,7 +135,7 @@
            @include('asignatura.create')
     </div>
     
-</div>
+</div>-->
 
 <script>
    $(document).ready(function() {

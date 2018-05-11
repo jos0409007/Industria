@@ -25,7 +25,6 @@
 								<i class="glyphicon glyphicon-cog"></i>
 							</a>
 						</div>
-
 					</div>
 					<div class="col-lg-3 col-xs-6 col-lg-offset-1">
 						<div class="small-box bg-green">
@@ -52,6 +51,23 @@
 								<i class="glyphicon glyphicon-eye-open"></i>
 							</div>
 							<a href="/permiso" class="small-box-footer">
+								Administrar
+								<i class="glyphicon glyphicon-cog"></i>
+							</a>
+						</div>
+					</div>
+				@endrole()
+				@role('administracion')
+					<div class="col-lg-3 col-xs-6 ">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+								<h3> </h3>
+								<p>Docentes</p>
+							</div>
+							<div class="icon">
+								<i class="fa fa-user"></i>
+							</div>
+							<a href="/usuario" class="small-box-footer">
 								Administrar
 								<i class="glyphicon glyphicon-cog"></i>
 							</a>

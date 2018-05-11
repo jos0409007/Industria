@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     {!! Form::open(['route'=>'asignatura.store', 'method'=>'POST'])!!}
                         @include('asignatura.partial.campos')
-                         <button type="submit" class="btn btn-primary">guardar</button>
+                         <button type="submit" class="btn btn-primary">Guardar</button>
                      {!! Form::close() !!}
     
                 </div>
