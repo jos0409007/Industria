@@ -52,9 +52,12 @@
                                         <td width = "10px"> {{ $permiso->name }} </td>
                                         <td width = "1px"> {{ $permiso->slug }} </td>
                                         <td width = "1px"> {{ $permiso->description }} </td>
-                                        <td width = "150px">
-                                            <a href="{{route('permiso.edit',$permiso->id)}}" class="btn btn-warning btn-sm">Editar</a>
-                                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                                        <td width = "130px">
+                                            <a href="{{route('permiso.edit',$permiso->id)}}" class="btn btn-warning">Editar</a>
+                                            {{ Form::open(array('route' => array('permiso.destroy', $permiso->id), 'class' => 'pull-right')) }}
+                                                {{ Form::hidden('_method', 'DELETE') }}
+                                                {{ Form::submit('Eliminar', array('class' => 'btn btn-danger')) }}
+                                            {{ Form::close() }}
                                         </td>
                                     </tr>
                                 @endforeach

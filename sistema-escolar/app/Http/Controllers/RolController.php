@@ -103,5 +103,8 @@ class RolController extends Controller
     public function destroy($id)
     {
         //
+        Role::destroy($id);
+
+        return redirect()->route('rol.index');
     }
 }

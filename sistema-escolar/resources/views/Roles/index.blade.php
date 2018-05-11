@@ -52,9 +52,12 @@
                                         <td> {{ $rol->name }} </td>
                                         <td> {{ $rol->slug }} </td>
                                         <td> {{ $rol->description }} </td>
-                                        <td>
-                                            <a href="{{route('rol.edit',$rol->id)}}" class="btn btn-warning btn-sm">Editar</a>
-                                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                                        <td width="180px">
+                                            <a href="{{route('rol.edit',$rol->id)}}" class="btn btn-warning">Editar</a>
+                                            {{ Form::open(array('route' => array('rol.destroy', $rol->id), 'class' => 'pull-right')) }}
+                                                {{ Form::hidden('_method', 'DELETE') }}
+                                                {{ Form::submit('Eliminar', array('class' => 'btn btn-danger')) }}
+                                            {{ Form::close() }}
                                         </td>
                                     </tr>
                                 @endforeach
