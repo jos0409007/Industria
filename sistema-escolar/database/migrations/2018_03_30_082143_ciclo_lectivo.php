@@ -24,7 +24,7 @@ class CicloLectivo extends Migration
             $table->enum('Estatus',['Activo','Inactivo']);
 
 
-            $table->foreign('PeriodoId')->references('PeriodoId')->on('tbl_PeriodoAcademico');
+            $table->foreign('PeriodoId')->references('PeriodoId')->on('tbl_PeriodoAcademico')->onDelete('cascade');
             
             $table->timestamps();
         });

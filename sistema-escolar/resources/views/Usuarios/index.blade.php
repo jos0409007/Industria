@@ -50,9 +50,13 @@
                                         <td width="10px"> {{ $usuario->id }} </td>
                                         <td> {{ $usuario->name }} </td>
                                         <td> {{ $usuario->email }} </td>
-                                        <td>
-                                            <a href="{{route('usuario.edit',$usuario->id)}}" class="btn btn-warning btn-sm" data-toggle="modal">Editar</a>
-                                            <a href="#" class="btn btn-danger btn-sm">Eliminar</a>
+                                        <td width="180px">
+                                            <a href="{{route('usuario.edit',$usuario->id)}}" class="btn btn-warning" data-toggle="modal">Editar</a>
+                                            {{ Form::open(array('route' => array('usuario.destroy', $usuario->id), 'class' => 'pull-right')) }}
+                                                {{ Form::hidden('_method', 'DELETE') }}
+                                                {{ Form::submit('Eliminar', array('class' => 'btn btn-danger')) }}
+                                            {{ Form::close() }}
+                                            <!--<a href="{{route('usuario.destroy',$usuario->id)}}" class="btn btn-danger btn-sm">Eliminar</a>-->
                                         </td>
                                     </tr>
                                 @endforeach

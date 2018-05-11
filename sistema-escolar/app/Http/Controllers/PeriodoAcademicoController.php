@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\PeriodoAcademico;
+use App\CicloLectivo;
 
 class PeriodoAcademicoController extends Controller
 {
@@ -109,8 +110,8 @@ class PeriodoAcademicoController extends Controller
     {
         //
         PeriodoAcademico::destroy($id);
-        
-        return redirect()->route('periodoacademico.index');
 
+        return redirect()->route('periodoacademico.index');
+        
     }
 }
