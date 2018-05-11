@@ -86,6 +86,7 @@ class CicloLectivoController extends Controller
   
         $ciclo = CicloLectivo::find($id);
         $periodos = PeriodoAcademico::get();
+        //dd($ciclo);
 
         return view('cicloLectivo.edit',['ciclo'=> $ciclo, 'periodos' => $periodos ]);
 

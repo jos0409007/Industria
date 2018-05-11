@@ -1,28 +1,29 @@
+@extends('adminlte::layouts.app')
 
-
-<div class="modal fade" id="update{{ $ciclo->CicloId }}">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">
-                    <span>x</span>
-                </button>
-                <h4>Agregar usuario</h4>
-            </div>
-            @foreach( $cicloLectivo as $ci)
-                @if( $ci->CicloId == $ciclo->CicloId)
-
-                    <div class="modal-body">
-                        {!! Form::model($ci, ['route'=>['ciclolectivo.update',$ci], 'method'=>'PUT'])!!}
-                        @include('ciclolectivo.partial.campos')
-                            <button type="submit" class="btn btn-primary">guardar</button>
-                        {!! Form::close() !!}
+@section('htmlheader_title')
+	{{ trans('adminlte_lang::message.home') }}
+@endsection
+@section('main-content')
+<div class="container-fluid spark-screen">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="box box-solid box-primary">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Editar ciclo lectivo: {{ $ciclo->CicloId }}</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
+                            <i class="fa fa-minus"></i></button>
                     </div>
-                    @break    
-                @endif
-            @endforeach
-    
+                </div>
+                <div class="box-body">
+                    {!! Form::model($ciclo, ['route'=>['ciclolectivo.update',$ciclo->CicloId], 'method'=>'PUT'])!!}
+                        @include('ciclolectivo.partial.campos')
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
+@endsection
 
