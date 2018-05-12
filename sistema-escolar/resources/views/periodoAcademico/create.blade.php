@@ -12,7 +12,7 @@
             <div class="modal-body">
                 {!! Form::open(['route'=>'periodoacademico.store', 'method'=>'POST'])!!}
                     @include('periodoAcademico.partial.campos')
-                    <button type="submit" class="btn btn-primary">guardar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 {!! Form::close() !!}
         
             </div>

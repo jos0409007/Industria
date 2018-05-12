@@ -14,7 +14,7 @@
                         <div class="small-box bg-green">
                             <div class="inner">
                                 <h3> {{ $especialidades->count() }} </h3>
-                                <p>Carreras</p>
+                                <p>Especialidades</p>
                             </div>
                             <div class="icon">
                                 <i class="fa fa-book"></i>

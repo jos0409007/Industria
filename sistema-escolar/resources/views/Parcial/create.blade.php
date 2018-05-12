@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     {!! Form::open(['route'=>'parcial.store', 'method'=>'POST'])!!}
                         @include('parcial.partial.campos')
-                         <button type="submit" class="btn btn-primary">guardar</button>
+                         <button type="submit" class="btn btn-primary">Guardar</button>
                      {!! Form::close() !!}
     
                 </div>

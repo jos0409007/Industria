@@ -17,7 +17,7 @@
                                 <p>Ciclos lectivos</p>
                             </div>
                             <div class="icon">
-                                <i class="fa fa-book"></i>
+                                <i class="fa fa-pencil-square-o"></i>
                             </div>
                         </div>
                     </div>
